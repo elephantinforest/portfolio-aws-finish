@@ -60,6 +60,8 @@ class PositionControllerTest extends TestCase
     {
         $_POST['x'] = 666;
         $_POST['y'] = 666;
+        $_POST['windowWidth'] = 500;
+        $_POST['windowHeight'] = 900;
         $_POST['register_id'] = 1;
         $_POST['test'] = true;
         $_SESSION['test_variable'] = 'test_value';
@@ -84,6 +86,8 @@ class PositionControllerTest extends TestCase
     {
         $_POST['x'] = 555;
         $_POST['y'] = 555;
+        $_POST['windowWidth'] = 500;
+        $_POST['windowHeight'] = 900;
         $_POST['register_id'] = 2;
         $_POST['test'] = true;
         $_SESSION['test_variable'] = 'test_value';

@@ -2,4 +2,6 @@ docker/db/mysql_data
 docker/db/test_mysql_data
 src/vendor
 src/node_modules
-src/src/images
+src/src/images/user
+src/src/images/location
+src/src/images/register

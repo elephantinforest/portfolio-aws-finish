@@ -87,9 +87,6 @@ $(document).ready(function () {
     //     })
     // }
 
-    function updateImage(data) {
-        // locationsからデータを取得して表示する
-    }
 
     $('.prevBtn').on('click', function () {
         getLocationData('prev')

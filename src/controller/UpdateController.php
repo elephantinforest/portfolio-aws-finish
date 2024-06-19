@@ -62,7 +62,7 @@ class UpdateController extends Controller
     $registerErrors = $this->validation->validateRegister($register);
     $fileErrors = $this->validation->filevalidation($files);
     //アップデート終了後のリダイレクト先のパス
-    $path = "Location: http://localhost:5008/update?location_id={$register['location_id']}";
+    $path = "Location: /update?location_id={$register['location_id']}";
     if (empty($fileErrors)) {
       //ファイルバリデーション通過した処理
       if (empty($registerErrors)) {

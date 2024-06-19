@@ -18,7 +18,7 @@
 
                      </div>
                      <div id="search" class="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
-                         <div class="w-full sm:max-w-xs">
+                         <div class="registerSearch w-full sm:max-w-xs">
                              <label for="search" class="sr-only">Search</label>
                              <div class="relative">
                                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -80,7 +80,7 @@
                                  </li>
                              </div>
                          </ul>
-                         <button type="button" id="omae" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none " aria-controls="mobile-menu" aria-expanded="false"> <svg id="inputButtn" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                         <button type="button" id="omae" class="omae relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none " aria-controls="mobile-menu" aria-expanded="false"> <svg id="inputButtn" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                              </svg>
                          </button>
@@ -102,8 +102,9 @@
                              <!-- <span class="absolute -inset-1.5">ログアウト</span> -->
                              <!-- <span class="sr-only">ログアウト</span> -->
                              <img class="h-16  hover:backdrop-contrast-150" src="<?php echo $this->createPath('/var/www/html/src/imgs/_b4eb111d-3415-4e44-8ad7-8155acc5a0b8.jpg') ?>" alt="Your Company">
-                             <!-- </button> -->
                          </a>
+                             </button>
+
                          <?php if (isset($locations)) : ?>
                              <!-- Profile dropdown -->
                              <div class="relative ml-4 flex-shrink-0">

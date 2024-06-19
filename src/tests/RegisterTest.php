@@ -99,16 +99,22 @@ class RegisterTest extends TestCase
         'registerId' => $this->registers[0]['register_id'],
         'width' => 500,
         'height' => 500,
+        'window_width' => 500,
+        'window_height' => 900,
       ],
       [
         'registerId' => $this->registers[1]['register_id'],
         'width' => 700,
         'height' => 700,
+        'window_width' => 500,
+        'window_height' => 900,
       ],
       [
         'registerId' => $this->registers[2]['register_id'],
         'width' => 700,
         'height' => 700,
+        'window_width' => 500,
+        'window_height' => 900,
       ]
     ];
     $this->position->insertPosition($positions[0]);
@@ -134,7 +140,9 @@ class RegisterTest extends TestCase
         'left_position' => 100.0,
         'top_position' => 200.0,
         'width' => 500,
-        'height' => 500
+        'height' => 500,
+        'window_width' => 500,
+        'window_height' => 900,
       ],
       [
         'register_id' => $this->registers[1]['register_id'],
@@ -148,7 +156,9 @@ class RegisterTest extends TestCase
         'left_position' => 300.0,
         'top_position' => 400.0,
         'width' => 700,
-        'height' => 700
+        'height' => 700,
+        'window_width' => 500,
+        'window_height' => 900,
       ],
     ];
 
@@ -167,7 +177,9 @@ class RegisterTest extends TestCase
         'left_position' => 600.0,
         'top_position' => 700.0,
         'width' => 700,
-        'height' => 700
+        'height' => 700,
+        'window_width' => 500,
+        'window_height' => 900,
       ],
     ];
     $this->assertSame($actual, $expected);

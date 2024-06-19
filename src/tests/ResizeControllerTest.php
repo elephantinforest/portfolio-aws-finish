@@ -34,11 +34,15 @@ class ResizeControllerTest extends TestCase
                 'registerId' => 1,
                 'width' => 100,
                 'height' => 200,
+                'window_width' => 200,
+                'window_height' => 900,
             ],
             [
                 'registerId' => 2,
                 'width' => 300,
                 'height' => 400,
+                'window_width' => 200,
+                'window_height' => 900,
             ]
         ];
         $this->resize->insert($resizes[0]);
@@ -63,6 +67,8 @@ class ResizeControllerTest extends TestCase
             'registerId' => 1,
             'width' => 555,
             'height' => 555,
+            'windowWidth' => 555,
+            'windowHeight' => 555,
         ];
         $_POST['test'] = true;
         $_SESSION['loggedin'] = true;
@@ -90,6 +96,8 @@ class ResizeControllerTest extends TestCase
             'registerId' => 3,
             'width' => 666,
             'height' => 666,
+            'window_width' => 200,
+            'window_height' => 900,
         ];
         $_POST['test'] = true;
         $_SESSION['loggedin'] = true;

@@ -17,7 +17,7 @@ class UserTest extends TestCase
     $this->user = new User($this->mysqli);
     $user = [
       'name' => '五条悟',
-      'email' => 'oreore@gmail.com',
+      'email' => 'satoru@gmail.com',
       'password' => 'oreoreoo',
     ];
     $this->user->insert($user['name'], $user['email'], $user['password']);
@@ -25,6 +25,8 @@ class UserTest extends TestCase
 
   protected function tearDown(): void
   {
+    $delete_query = "DELETE FROM users";
+    $this->mysqli->query($delete_query);
     $this->mysqli->rollback();
     $this->user = null;
     $this->mysqli = null;
@@ -32,7 +34,7 @@ class UserTest extends TestCase
 
   public function testFetchUser()
   {
-    $email = 'oreore@gmail.com';
+    $email = 'satoru@gmail.com';
     $actual = $this->user->fetchUser($email);
     $actual = [
       'name' => $actual['name'],
@@ -41,7 +43,7 @@ class UserTest extends TestCase
     ];
     $expected =  [
         'name' => '五条悟',
-        'email' => 'oreore@gmail.com',
+        'email' => 'satoru@gmail.com',
         'password' => 'oreoreoo',
       ];
       $this->assertSame($actual, $expected);

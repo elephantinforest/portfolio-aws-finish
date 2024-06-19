@@ -305,12 +305,14 @@ $(document).ready(function () {
         $(this).attr('aria-expanded', function (index, attr) {
             return attr === 'true' ? 'false' : 'true'
         })
-
+        var inputValue = $('.header_locationname').text()
+        console.log(inputValue)
         // oreの表示状態を切り替える
         $('.ore').removeClass('translate-x-full')
         $('#closeButtn').show()
         $('#search').hide()
         $('#inputButtn').hide()
+        $('#omae').hide()
     })
     $('#closeButtn').click(function () {
         // aria-expanded属性の値をトグルする
@@ -323,6 +325,7 @@ $(document).ready(function () {
         $('#closeButtn').hide()
         $('#search').show()
         $('#inputButtn').show()
+        $('#omae').show()
     })
 
     $('.smallLocationButtn').click(function () {
@@ -343,7 +346,7 @@ $(document).ready(function () {
             $('.moveLocation').hide()
             $('.registerHide').hide()
         } else {
-            if (window123 < 870) {
+            if (window123 < 1020) {
                 if (isHidden) {
                     $('.moveLocation').show()
                     $('.registerHide').show()
@@ -439,7 +442,7 @@ $(document).ready(function () {
             $('.registerHide').hide()
             $('.registerde').hide()
             $('.pageButtn').hide()
-            // $('.formLocation').show()
+            $('.formLocation').show()
             var inputValue = $('.header_locationname').text()
             if (!inputValue.includes('ロケーションは登録されていません')) {
                 // 条件がtrueの場合の処理
@@ -505,7 +508,6 @@ $(document).ready(function () {
         // ウィンドウのリサイズイベントを監視して、幅が変更されたら対処する
         $(window).on('resize', checkWidth)
     }
-
     // クラス名を引数として関数を呼び出す
     handleWidthChange('registerHide')
     handleWidthChange('locationHide')
@@ -560,4 +562,15 @@ $(document).ready(function () {
 
     // // 関数を呼び出して、監視する要素のセレクタを渡す
     // observeWidthChanges('.registerHide')
+    $(window).on('resize', function () {
+        if ($(window).width() >= 1020) {
+            fetchRegistersName()
+            // responsiveDesign()
+              if ($('.pageButtn').is(':hidden')) {
+                  // 要素を表示
+                  $('.pageButtn').show()
+              }
+        }
+    })
+
 })

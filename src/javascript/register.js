@@ -336,7 +336,7 @@ $(document).ready(function () {
                                     'Complete: Ajax request completed (after success or error).',
                                 )
 
-                                if (parentWidth < 1020) {
+                                if (!(parentWidth < 1020)) {
                                     $('.content').hide()
                                     $('header').show()
                                     // $('#buttn').empty()
@@ -347,18 +347,26 @@ $(document).ready(function () {
                                     responsiveDesign()
                                     $('.registerHide').css('width', '100%')
                                 } else {
-                                    $('.register').hide()
+                                    // $('.smallRegisterButtn').hide()
+                                    // console.log('京都大作戦')
+                                    // $('.content').hide()
+                                    // $('.wideLocationButtn').show()
+                                    // $('.omae').show()
+                                    // $('.moveLocation').show()
+                                    // $('header').show()
+                                    // // $('.header').show()
+                                    // $('.registerHide').css('width', '100%')
                                     $('.content').hide()
-                                    $('.wideLocationButtn').show()
-                                    $('.register').show()
-                                    $('.pageButtn').show()
                                     $('header').show()
                                     // $('#buttn').empty()
-                                    $('.pageButtn').show()
+                                    // $('.pageButtn').show()
 
                                     // $('#buttn').show()
                                     fetchRegistersName()
                                     responsiveDesign()
+                                    $('.registerHide').css('width', '100%')
+                                    // $('#buttn').show()
+
                                 }
                             },
                         })

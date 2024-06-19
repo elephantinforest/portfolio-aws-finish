@@ -43,7 +43,7 @@ class LoginControllerTest extends TestCase
         $this->user = new User($this->mysqli);
         $user = [
             'name' => '五条悟',
-            'email' => 'uoreore@gmail.com',
+            'email' => 'rikugann@gmail.com',
             'password' => password_hash('oreoreoo', PASSWORD_DEFAULT),
         ];
         $this->user->insert($user['name'], $user['email'], $user['password']);
@@ -55,6 +55,8 @@ class LoginControllerTest extends TestCase
     protected function tearDown(): void
     {
         $this->mysqli->rollback();
+        $delete_query = "DELETE FROM users";
+        $this->mysqli->query($delete_query);
         $this->loginController = null;
         $this->application = null;
         $this->mysqli = null;
@@ -66,7 +68,7 @@ class LoginControllerTest extends TestCase
     public function testIndex()
     {
         session_start();
-        $_POST['email'] = 'uoreore@gmail.com';
+        $_POST['email'] = 'rikugann@gmail.com';
         $_POST['password'] = 'oreoreoo';
         $_SERVER['REQUEST_METHOD'] = 'POST';
         // セッションに値を設定
@@ -75,7 +77,7 @@ class LoginControllerTest extends TestCase
         $actual = $this->loginController->run($action);
         $expected = 'ロケーションは登録されていません。';
         $this->assertStringContainsString($expected, $actual);
-        $this->user->delete('uoreore@gmail.com');
+        $this->user->delete('rikugann@gmail.com');
         session_destroy();
     }
     /**
@@ -129,11 +131,15 @@ class LoginControllerTest extends TestCase
                 'registerId' => $registers[0]['register_id'],
                 'width' => 100,
                 'height' => 200,
+                'window_width' => 200,
+                'window_height' => 900,
             ],
             [
                 'registerId' => $registers[1]['register_id'],
                 'width' => 300,
                 'height' => 400,
+                'window_width' => 200,
+                'window_height' => 900,
             ]
         ];
         $this->resize->insert($resizes[0]);
@@ -156,7 +162,7 @@ class LoginControllerTest extends TestCase
         $this->position->insertPosition($positions[1]);
         session_start();
 
-        $_POST['email'] = 'uoreore@gmail.com';
+        $_POST['email'] = 'rikugann@gmail.com';
         $_POST['password'] = 'oreoreoo';
         $_SERVER['REQUEST_METHOD'] = 'POST';
         // セッションに値を設定
@@ -172,7 +178,7 @@ class LoginControllerTest extends TestCase
             $this->assertStringContainsString($value, $actual);
         };
         // $this->assertStringContainsString($expected, $actual);
-        $this->user->delete('uoreore@gmail.com');
+        $this->user->delete('rikugann@gmail.com');
         $this->location->delete($locationId);
         $this->resize->delete($registers[0]['register_id']);
         $this->resize->delete($registers[1]['register_id']);
@@ -232,11 +238,15 @@ class LoginControllerTest extends TestCase
                 'registerId' => $registers[0]['register_id'],
                 'width' => 100,
                 'height' => 200,
+                'window_width' => 200,
+                'window_height' => 900,
             ],
             [
                 'registerId' => $registers[1]['register_id'],
                 'width' => 300,
                 'height' => 400,
+                'window_width' => 200,
+                'window_height' => 900,
             ]
         ];
         $this->resize->insert($resizes[0]);
@@ -259,7 +269,7 @@ class LoginControllerTest extends TestCase
         $this->position->insertPosition($positions[1]);
         session_start();
 
-        $_POST['email'] = 'uoreore@gmail.com';
+        $_POST['email'] = 'rikugann@gmail.com';
         $_POST['password'] = 'oreoreoo';
         $_SERVER['REQUEST_METHOD'] = 'POST';
         // セッションに値を設定
@@ -274,7 +284,7 @@ class LoginControllerTest extends TestCase
             $this->assertStringContainsString($value, $actual);
         };
         // $this->assertStringContainsString($expected, $actual);
-        $this->user->delete('uoreore@gmail.com');
+        $this->user->delete('rikugann@gmail.com');
         $this->location->delete($locationId);
         $this->resize->delete($registers[0]['register_id']);
         $this->resize->delete($registers[1]['register_id']);
@@ -291,7 +301,7 @@ class LoginControllerTest extends TestCase
     public function testIndexFailedUser()
     {
 
-        $_POST['email'] = 'ueore@gmail.com';
+        $_POST['email'] = 'rikugan@gmail.com';
         $_POST['password'] = 'orreoo';
         $_SERVER['REQUEST_METHOD'] = 'POST';
         // セッションに値を設定
@@ -303,6 +313,6 @@ class LoginControllerTest extends TestCase
         foreach ($expected as $value) {
             $this->assertStringContainsString($value, $actual);
         };
-        $this->user->delete('uoreore@gmail.com');
+        $this->user->delete('rikugann@gmail.com');
     }
 }

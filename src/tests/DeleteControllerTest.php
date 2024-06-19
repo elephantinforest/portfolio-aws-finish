@@ -122,11 +122,15 @@ class DeleteControllerTest extends TestCase
                 'registerId' => $registers[0]['register_id'],
                 'width' => 100,
                 'height' => 200,
+                'window_width' => 200,
+                'window_height' => 900,
             ],
             [
                 'registerId' => $registers[1]['register_id'],
                 'width' => 300,
                 'height' => 400,
+                'window_width' => 400,
+                'window_height' => 900,
             ]
         ];
         $this->resize->insert($resizes[0]);

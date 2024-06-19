@@ -39,12 +39,17 @@ COPY ./docker/app/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 #環境変数の設定
 ENV API_KEY=AIzaSyAgsMAuZkOuu9mMwANgdPHijQa2Bbm-zZg
-ENV MYSQL_HOST=portfolio-container-rds-2.cvcgea2q4h5o.ap-northeast-1.rds.amazonaws.com
-ENV MYSQL_DATABASE==portfolio_prod
-ENV MYSQL_PASSWORD==portfolio
-ENV MYSQL_ROOT_PASSWORD=pass
-ENV MYSQL_USER=portfolioUser
+# ENV MYSQL_HOST=portfolio-container-rds-2.cvcgea2q4h5o.ap-northeast-1.rds.amazonaws.com
+# ENV MYSQL_DATABASE==portfolio_prod
+# ENV MYSQL_PASSWORD==portfolio
+# ENV MYSQL_ROOT_PASSWORD=pass
+# ENV MYSQL_USER=portfolioUser
 
+ENV MYSQL_DATABASE=test_database
+ENV MYSQL_HOST=db
+ENV MYSQL_PASSWORD=pass
+ENV MYSQL_ROOT_PASSWORD=pass
+ENV MYSQL_USER=test_user
 # apacheのuidとgidをdocker user uid/gidに変更。
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 

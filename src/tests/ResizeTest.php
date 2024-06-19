@@ -20,11 +20,15 @@ class ResizeTest extends TestCase
         'registerId' => 1,
         'width' => 100,
         'height' => 200,
+        'window_width' => 200,
+        'window_height' => 900,
       ],
       [
         'registerId' => 2,
         'width' => 300,
         'height' => 400,
+        'window_width' => 200,
+        'window_height' => 900,
       ]
     ];
     $this->resize->insert($this->resizes[0]);
@@ -57,6 +61,8 @@ class ResizeTest extends TestCase
       'registerId' => 3,
       'width' => 500,
       'height' => 500,
+      'window_width' => 200,
+      'window_height' => 900,
     ];
     $this->resize->insert($resize);
     $actual = $this->resize->fetchResize(3);
@@ -81,6 +87,8 @@ class ResizeTest extends TestCase
       'registerId' => 2,
       'width' => 200,
       'height' => 200,
+      'windowWidth' => 200,
+      'windowHeight' => 900,
     ];
     $this->resize->update($resize);
     $actual = $this->resize->fetchResize(2);
@@ -90,7 +98,7 @@ class ResizeTest extends TestCase
         'width' => 200,
         'height' => 200,
       ];
-      $this->assertSame($actual,$expected);
+    $this->assertSame($actual, $expected);
   }
 
   public function testDelete()
